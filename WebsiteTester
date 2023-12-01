@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# The first argument is the URL of the website to check
+url=$1
+
+# Use curl to send a request to the website
+response=$(curl -s --head $url)
+
+# Check if the response contains "200 OK"
+if echo "$response" | grep "200 OK" > /dev/null
+then
+  echo "The website is up."
+else
+  echo "The website is down."
+fi
